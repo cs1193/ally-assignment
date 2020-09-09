@@ -1,0 +1,4 @@
+export const FETCH_OKR_LOADING = 'FETCH_OKR_LOADING';
+export const FETCH_OKR_SUCCESS = 'FETCH_OKR_SUCCESS';
+export const FETCH_OKR_ERROR = 'FETCH_OKR_ERROR';
+export const SET_FILTER = 'SET_FILTER';

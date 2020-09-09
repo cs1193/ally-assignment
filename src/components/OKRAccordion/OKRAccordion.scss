@@ -1,0 +1,62 @@
+@import '../../variables';
+
+.okr-accordion {
+    position: relative;
+    padding: 8px;
+    margin: 8px;
+    width: 600px;
+    background-color: $white;
+
+    &.open {
+        .title {
+            &::before {
+                transform: rotate(90deg);
+            }
+        }
+
+        .children {
+            display: block;
+        }
+    }
+
+    .title {
+        cursor: pointer;
+        
+        &::before {
+            content: '>';
+            display: inline-block;
+            padding-right: 8px;
+            color: $color-1;
+        }
+    }
+
+    .children {
+        display: none;
+        text-indent: 24px;
+        counter-reset: listStyle;
+        margin-top: 16px;
+        border-left: 1px solid $color-1;
+
+        .item {
+            counter-increment: listStyle;
+            padding: 8px;
+            position: relative;
+
+            &::before {
+                display: inline-block;
+                padding-right: 8px;
+                content: counter(listStyle, lower-alpha) ".";
+            }
+
+            &::after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                border-bottom: 1px solid $color-1;
+                top: 17px;
+                left: 0px;
+                width: 40px;
+            }
+        }
+    }
+}

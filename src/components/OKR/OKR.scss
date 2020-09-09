@@ -1,0 +1,23 @@
+@import '../../variables';
+
+.okr-list {
+    padding: 8px 0;
+
+    .okr-filters {
+        padding: 8px;
+
+        .filter-item {
+            display: inline-block;
+            cursor: pointer;
+            padding: 8px;
+            margin-right: 8px;
+            background-color: $white;
+            color: $color-2;
+
+            &.active {
+                background-color: $color-2;
+                color: $white;
+            }
+        }
+    }
+}
