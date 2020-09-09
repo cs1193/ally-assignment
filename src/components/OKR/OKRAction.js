@@ -1,4 +1,4 @@
-import { FETCH_OKR_LOADING, FETCH_OKR_SUCCESS, FETCH_OKR_ERROR, SET_FILTER } from "./OKRActionTypes"
+import { FETCH_OKR_LOADING, FETCH_OKR_SUCCESS, FETCH_OKR_ERROR, SET_FILTER, CLEAR_FILTER } from "./OKRActionTypes"
 
 export function getOKR() {
     return function(dispatch, getState) {
@@ -40,5 +40,11 @@ export function setFilter(payload) {
     return {
         type: SET_FILTER,
         payload
+    }
+}
+
+export function clearFilter() {
+    return {
+        type: CLEAR_FILTER
     }
 }

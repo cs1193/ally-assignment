@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
 
-import { getOKR, setFilter } from './OKRAction';
+import { getOKR, setFilter, clearFilter } from './OKRAction';
 import OKRAccordion from '../OKRAccordion/OKRAccordion';
 
 import './OKR.scss';
@@ -14,6 +14,11 @@ class OKR extends Component {
         super(props);
 
         this.setFilter = this.setFilter.bind(this);
+        this.clearFilter = this.clearFilter.bind(this);
+    }
+
+    clearFilter() {
+        this.props.clearFilter();
     }
 
     setFilter(e) {
@@ -28,11 +33,20 @@ class OKR extends Component {
     render() {
         const { okr, keys, filters, currentFilter } = this.props;
 
+        let clearFilter = '';
+        
+        if (currentFilter) {
+            clearFilter = (
+                <div className="clear-filter" onClick={this.clearFilter}>Clear Filter</div>
+            );
+        }
+
         const filter = (
             <div className="okr-filters">
                 {filters.map((f, i) => (
                     <div key={i} className={`filter-item ` + (f === currentFilter ? 'active' : '')} onClick={this.setFilter}>{f}</div>
                 ))}
+                {clearFilter}
             </div>
         )
 
@@ -73,7 +87,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         getOKR,
-        setFilter
+        setFilter,
+        clearFilter
     }, dispatch);
 }
 

@@ -21,6 +21,10 @@
 
     .title {
         cursor: pointer;
+
+        .counter {
+            color: $color-1;
+        }
         
         &::before {
             content: '>';
@@ -46,6 +50,7 @@
                 display: inline-block;
                 padding-right: 8px;
                 content: counter(listStyle, lower-alpha) ".";
+                color: $color-1;
             }
 
             &::after {

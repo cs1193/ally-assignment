@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { FETCH_OKR_LOADING, FETCH_OKR_SUCCESS, FETCH_OKR_ERROR, SET_FILTER } from './OKRActionTypes';
+import { FETCH_OKR_LOADING, FETCH_OKR_SUCCESS, FETCH_OKR_ERROR, SET_FILTER, CLEAR_FILTER } from './OKRActionTypes';
 
 const initialState = {
     okr: [],
@@ -52,6 +52,12 @@ export default function OKRReducer(state = initialState, { type, payload }) {
             return {
                 ...state,
                 currentFilter: payload
+            }
+        }
+        case CLEAR_FILTER: {
+            return {
+                ...state,
+                currentFilter: ''
             }
         }
         default:

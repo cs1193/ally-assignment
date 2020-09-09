@@ -27,7 +27,7 @@ export default class OKRAccordion extends Component {
 
         return (
             <div className={`okr-accordion ` + (open ? 'open': '')}>
-                <div className="title" onClick={this.onToggle}>{id}. {title}</div>
+                <div className="title" onClick={this.onToggle}><span className="counter">{id}.</span> {title}</div>
 
                 <div className="children">
                     {children.map((c, i) => (
